@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "YouTube Scraper Pro",
+    "description": "High-performance, professional-grade YouTube data extraction API. Get video metadata, search results, and direct stream links instantly.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://youtube-scraper-pro.onrender.com",
+      "description": "Production server (Placeholder)"
+    }
+  ],
+  "paths": {
+    "/v1/video": {
+      "get": {
+        "summary": "Get Video Metadata",
+        "description": "Extracts complete intelligence from a YouTube video URL, including thumbnails, views, likes, and stream links.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "The full YouTube video URL",
+            "schema": {
+              "type": "string",
+              "example": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/search": {
+      "get": {
+        "summary": "Search YouTube",
+        "description": "Perform a programmatic search on YouTube and return the top 10 results with metadata.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "The search query",
+            "schema": {
+              "type": "string",
+              "example": "best ai tools 2026"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "responses": {
+          "200": {
+            "description": "System Online"
+          }
+        }
+      }
+    }
+  }
+}
